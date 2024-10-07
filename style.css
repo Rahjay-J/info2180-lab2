@@ -1,0 +1,159 @@
+/* Universal styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    font-size: 18px;
+    color: #2D3748;
+    line-height: 1.6; /* Improved readability */
+    background-color: #F7FAFC; /* Slight background color change */
+}
+
+/* Container using CSS Grid */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr; /* Sidebar on both sides for balance */
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        ". header ."
+        ". main sidebar"
+        ". footer .";
+    gap: 20px; /* Adding space between elements */
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Header styles with Flexbox */
+.header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #63B3ED;
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px; /* Rounded corners for a modern look */
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px; /* Space between image and text */
+}
+
+.header h1 {
+    font-size: 36px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-style: italic; /* Makes the quote stand out */
+}
+
+/* Main content styles */
+.main-content {
+    grid-area: main;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+article h2 {
+    font-size: 32px;
+    color: #48BB78;
+    margin-bottom: 10px;
+}
+
+.post-meta {
+    color: #718096;
+    margin-bottom: 20px;
+}
+
+/* Floating Images */
+.float-left {
+    float: left;
+    margin-right: 15px;
+    max-width: 300px;
+}
+
+.float-right {
+    float: right;
+    margin-left: 15px;
+    max-width: 300px;
+}
+
+/* Sidebar styles */
+.sidebar {
+    grid-area: sidebar;
+    padding: 20px;
+    background-color: #F7FAFC;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Same shadow as the main content */
+}
+
+.sidebar h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 15px;
+}
+
+.sidebar h3.about {
+    color: #000000;
+}
+
+.sidebar h3.social, .sidebar h3.archives {
+    color: #48BB78;
+}
+
+.sidebar p {
+    background-color: #E2E8F0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Links */
+.sidebar a {
+    color: #4299E1;
+    text-decoration: none; /* Remove default underline */
+    margin-bottom: 10px;
+    display: block; /* Makes links stack vertically */
+}
+
+.sidebar a:hover {
+    text-decoration: underline; /* Adds underline on hover */
+}
+
+/* Footer styles */
+footer {
+    grid-area: footer;
+    background-color: #2C5282;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "header"
+            "main"
+            "sidebar"
+            "footer";
+    }
+
+    .sidebar {
+        float: none;
+    }
+}
